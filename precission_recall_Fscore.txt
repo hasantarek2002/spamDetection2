@@ -1,0 +1,78 @@
+
+    True Positive (TP) = A diseased person who is correctly identified as having a disease by the test
+    False Positive (FP) = A healthy person that is incorrectly identified as having the disease by the test
+    True Negative (TN) = A healthy person who is correctly identified as healthy by the test
+    False Negative (FN) = A diseased person who is incorrectly identified healthy by the test
+
+
+ True Positive
+
+    Umpire gives a Batsman NOT OUT when he is NOT OUT.
+
+
+True Negative
+
+    Umpire gives a Batsman OUT when he is OUT.
+
+
+False Positive (Type I error : Hurts a bit)
+
+    Umpire gives a Batsman NOT OUT when he is OUT.
+
+False Negative (Type II error : Hurts the most)
+
+    Umpire gives a Batsman OUT when he is NOT OUT.
+
+
+
+Accuracy
+
+Accuracy is how close you are to the true value. For example, let’s say you know your true height is exactly 5’9?.
+
+    You measure yourself with a yardstick and get 5’0?. Your measurement is not accurate.
+    You measure yourself again with a laser yardstick and get 5’9?. Your measurement is accurate.
+
+Note: The true value is sometimes called the theoretical value.
+Precision
+
+Precision is how close two or more measurements are to each other. If you consistently measure your height as 5’0? with a yardstick, your measurements are precise.
+Accuracy and Precision Together
+
+If you are precise, that doesn’t necessarily mean you are accurate. However, if you are consistently accurate, you are also precise.
+
+
+
+
+
+True positive and true negatives are the observations that are correctly predicted and therefore shown in green. We want to minimize false positives and false negatives so they are shown in red color. These terms are a bit confusing. So let’s take each term one by one and understand it fully.
+
+True Positives (TP) - These are the correctly predicted positive values which means that the value of actual class is yes and the value of predicted class is also yes. E.g. if actual class value indicates that this passenger survived and predicted class tells you the same thing.
+
+True Negatives (TN) - These are the correctly predicted negative values which means that the value of actual class is no and value of predicted class is also no. E.g. if actual class says this passenger did not survive and predicted class tells you the same thing.
+
+False positives and false negatives, these values occur when your actual class contradicts with the predicted class.
+
+False Positives (FP) – When actual class is no and predicted class is yes. E.g. if actual class says this passenger did not survive but predicted class tells you that this passenger will survive.
+
+False Negatives (FN) – When actual class is yes but predicted class in no. E.g. if actual class value indicates that this passenger survived and predicted class tells you that passenger will die.
+
+Once you understand these four parameters then we can calculate Accuracy, Precision, Recall and F1 score.
+
+Accuracy - Accuracy is the most intuitive performance measure and it is simply a ratio of correctly predicted observation to the total observations. One may think that, if we have high accuracy then our model is best. Yes, accuracy is a great measure but only when you have symmetric datasets where values of false positive and false negatives are almost same. Therefore, you have to look at other parameters to evaluate the performance of your model. For our model, we have got 0.803 which means our model is approx. 80% accurate.
+
+Accuracy = TP+TN/TP+FP+FN+TN
+
+Precision - Precision is the ratio of correctly predicted positive observations to the total predicted positive observations. The question that this metric answer is of all passengers that labeled as survived, how many actually survived? High precision relates to the low false positive rate. We have got 0.788 precision which is pretty good.
+
+Precision = TP/TP+FP
+
+Recall (Sensitivity) - Recall is the ratio of correctly predicted positive observations to the all observations in actual class - yes. The question recall answers is: Of all the passengers that truly survived, how many did we label? We have got recall of 0.631 which is good for this model as it’s above 0.5.
+
+Recall = TP/TP+FN
+
+F1 score - F1 Score is the weighted average of Precision and Recall. Therefore, this score takes both false positives and false negatives into account. Intuitively it is not as easy to understand as accuracy, but F1 is usually more useful than accuracy, especially if you have an uneven class distribution. Accuracy works best if false positives and false negatives have similar cost. If the cost of false positives and false negatives are very different, it’s better to look at both Precision and Recall. In our case, F1 score is 0.701.
+
+F1 Score = 2*(Recall * Precision) / (Recall + Precision)
+
+So, whenever you build a model, this article should help you to figure out what these parameters mean and how good your model has performed.
+
