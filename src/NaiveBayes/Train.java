@@ -273,7 +273,7 @@ public class Train {
 				String message = line.split("\t")[1];
 				ArrayList<Word> sms = makeWordList(message);
 				boolean isSpam = calculateBayes(sms);
-				if (isSpam && type.equals("spam")) {
+				/*if (isSpam && type.equals("spam")) {
 					tp++;
 				} else if (isSpam && type.equals("ham")) {
 					fp++;
@@ -281,6 +281,17 @@ public class Train {
 					fn++;
 				} else {
 					tn++;
+				}*/
+				if (isSpam && type.equals("spam")) {
+					tp++;
+				} else if (isSpam && type.equals("ham")) {
+					fp++;
+				} else if (isSpam == false && type.equals("ham")) {
+					tn++;
+					//fn++;
+				} else {
+					fn++;
+					//tn++;
 				}
 				/*
 				 * if (isSpam == true) this.out.write("spam"); else if (isSpam == false)
